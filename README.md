@@ -17,11 +17,21 @@ Or, to install the latest development version of a formula, run:
 brew install --HEAD vergissberlin/tap/<formula>
 ```
 
+Example — install the `vergissberlin` CLI:
+
+```sh
+brew tap vergissberlin/tap
+brew install vergissberlin
+# or:
+brew install vergissberlin/tap/vergissberlin
+```
+
 ### Formulae
 
 | Formula | Description |
 | ------- | ----------- |
 | [thinkport](Formula/thinkport.rb) | Informations about Thinkport GmbH |
+| [vergissberlin](Formula/vergissberlin.rb) | Useless CLI gem (`vergissberlin`) |
 
 ## Contributing
 
