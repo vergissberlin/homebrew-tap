@@ -9,15 +9,19 @@ class Vergissberlin < Formula
   license "MIT"
   head "https://github.com/vergissberlin/vergissberlin-cli.git", branch: "main"
 
+  livecheck do
+    url :stable
+    regex(/^v?(\d+(?:\.\d+)+)$/i)
+  end
+
   depends_on "ruby"
 
   def install
-    ENV["GEM_HOME"] = libexec
-    system "gem", "build", "vergissberlin.gemspec"
-    system "gem", "install", "vergissberlin-#{version}.gem", "--no-document"
-
-    bin.install libexec/"bin/vergissberlin"
-    bin.env_script_all_files(libexec/"bin", GEM_HOME: ENV.fetch("GEM_HOME", nil))
+    # Install from source (no runtime gem deps). Avoid `gem build` because the
+    # gemspec uses `git ls-files`, which is empty in GitHub release archives.
+    libexec.install "lib", "bin"
+    (bin/"vergissberlin").write_env_script libexec/"bin/vergissberlin",
+                                           RUBYLIB: libexec/"lib"
   end
 
   test do

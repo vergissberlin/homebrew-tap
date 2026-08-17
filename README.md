@@ -31,7 +31,7 @@ brew install vergissberlin/tap/vergissberlin
 | Formula | Description |
 | ------- | ----------- |
 | [thinkport](Formula/thinkport.rb) | Informations about Thinkport GmbH |
-| [vergissberlin](Formula/vergissberlin.rb) | Useless CLI gem (`vergissberlin`) |
+| [vergissberlin](Formula/vergissberlin.rb) | Useless CLI that prints a Berlin skyline and a reason to leave the city |
 
 ## Contributing
 
